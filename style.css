@@ -12,6 +12,9 @@ html {
   width: 100vw;
   height: 100vh;
   display: flex;
+  box-sizing: border-box;
+  padding: 2%;
+  gap: 2%;
 }
 
 .scrollContainer {
@@ -21,20 +24,15 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .scrollButton {
-  height: 12px;
-  width: 12px;
+  background: none;
+  color: azure;
 }
 
-.scrollContainer.back {
-  
-}
-
-.scrollContainer.forward {
-  
+.scrollButton:hover {
+  color: rgb(185, 212, 212);
 }
 
 .pictureWindow {
@@ -52,8 +50,9 @@ html {
   justify-content: center;
   align-items: center;
   background-color: rgba(245, 245, 245, 0.4);
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .scrollerBar {
@@ -72,3 +71,4 @@ html {
 
   border-radius: 50%;
 }
+
