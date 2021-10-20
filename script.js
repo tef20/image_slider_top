@@ -1,7 +1,15 @@
+import pubSub from './pubSub.js';
+
 const carousel = document.querySelector('.carousel');
+
+const scrollerBar = document.createElement('div');
+scrollerBar.className = 'scrollerBar';
+document.querySelector('.pictureWindow').appendChild(scrollerBar);
+
 for (let i = 0; i < 5; i++) {
   const imgContainer = document.createElement('div');
   imgContainer.className = 'imgContainer';
+  imgContainer.dataset.imageId = i;
   carousel.appendChild(imgContainer);
 
   const img = document.createElement('img');
@@ -9,11 +17,39 @@ for (let i = 0; i < 5; i++) {
   img.alt = `image${i} placeholder`;
 
   imgContainer.appendChild(img);
+
+  const dotButton = document.createElement('button');
+  dotButton.className = i === 0 ? 'dotButton activeDot' : 'dotButton';
+  pubSub.on('newImageSelected', updateDotHighlights);
+  dotButton.dataset.imageId = i;
+
+  scrollerBar.appendChild(dotButton);
+
+  dotButton.addEventListener('click', (e) => {
+    const activeDotID = scrollerBar.querySelector('.activeDot').dataset.imageId;
+    const chosenDotID = e.target.dataset.imageId;
+    const diff = activeDotID - chosenDotID;
+
+    // Update image selection
+    for (let j = 0; j < Math.abs(diff); j++) {
+      rotateChildElements(carousel, diff);
+    }
+  });
+}
+
+function updateDotHighlights(newActiveID) {
+  document.querySelectorAll('.dotButton').forEach((dotButton) => {
+    if (dotButton.dataset.imageId === newActiveID) {
+      dotButton.classList.add('activeDot');
+    } else {
+      dotButton.classList.remove('activeDot');
+    }
+  });
 }
 
 const backArrow = document.querySelector('.scrollButton.back');
 backArrow.addEventListener('click', (e) => {
-  rotateChildElements(carousel, 1);  
+  rotateChildElements(carousel, 1);
 });
 
 const forwardArrow = document.querySelector('.scrollButton.forward');
@@ -34,4 +70,9 @@ function rotateChildElements(parent, direction) {
       parent.insertBefore(overflow, last.nextElementSibling);
     }
   }
+  
+  pubSub.emit(
+    'newImageSelected',
+    document.querySelector('.imgContainer').dataset.imageId
+  );
 }
