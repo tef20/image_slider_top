@@ -18,7 +18,7 @@ html {
 }
 
 .scrollContainer {
-  width: 6%;
+  flex: 0 0 6%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,39 +36,32 @@ html {
 
 .pictureWindow {
   width: auto;
-  flex: 1;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 2%;
 }
 
 .imgFrame {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
   background-color: rgba(245, 245, 245, 0.4);
-  height: 100%;
-  width: 100%;
   border-radius: 5px;
 }
 
 .carousel {
+  height: 100%;
   display: flex;
-  overflow: hidden;
+  gap: auto;
 
 }
 
 .imgContainer {
-  flex-shrink: 0;
   position: relative;
-  right: 0%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
+  flex: 0 0 100%;
 }
 
 img {
@@ -76,8 +69,6 @@ img {
 }
 
 .scrollerBar {
-  grid-area: hscroll;
-
   display: flex;
   justify-content: center;
   align-items: center;
