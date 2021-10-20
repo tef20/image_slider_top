@@ -6,10 +6,15 @@ scrollerBar.className = 'scrollerBar';
 document.querySelector('.pictureWindow').appendChild(scrollerBar);
 
 const images = [
+  // Christina Alfirovich - https://unsplash.com/photos/M0RadVcPT4Y
   'https://images.unsplash.com/photo-1634672794609-3a592575318d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=385&q=80',
+  // Alex Diaz - https://unsplash.com/photos/zctH4MBwdeo
   'https://images.unsplash.com/photo-1634662615277-08cf18efc6bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=869&q=80', 
+  // Tobias Rademacher - https://unsplash.com/photos/K1lFYNVwVNM
   'https://images.unsplash.com/photo-1634726770944-4b4c46955214?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80', 
+  // Tobias Reich - https://unsplash.com/photos/CO70T8D5W6w
   'https://images.unsplash.com/photo-1634663831212-89c2c9c57551?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0M3x8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  // Virender Singh - https://unsplash.com/photos/hE0nmTffKtM
   'https://images.unsplash.com/photo-1634712282287-14ed57b9cc89?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=906&q=80'
 ]
 

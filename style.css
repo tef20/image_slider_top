@@ -47,7 +47,6 @@ html {
   display: flex;
   overflow: hidden;
   background-color: rgba(245, 245, 245, 0.4);
-  border-radius: 5px;
 }
 
 .carousel {
