@@ -37,16 +37,6 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-function updateDotHighlights(newActiveID) {
-  document.querySelectorAll('.dotButton').forEach((dotButton) => {
-    if (dotButton.dataset.imageId === newActiveID) {
-      dotButton.classList.add('activeDot');
-    } else {
-      dotButton.classList.remove('activeDot');
-    }
-  });
-}
-
 const backArrow = document.querySelector('.scrollButton.back');
 backArrow.addEventListener('click', (e) => {
   rotateChildElements(carousel, 1);
@@ -56,6 +46,24 @@ const forwardArrow = document.querySelector('.scrollButton.forward');
 forwardArrow.addEventListener('click', (e) => {
   rotateChildElements(carousel, -1);
 });
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowLeft') {
+    rotateChildElements(carousel, 1);
+  } else if (e.code === 'ArrowRight') {
+    rotateChildElements(carousel, -1);
+  }  
+});
+
+function updateDotHighlights(newActiveID) {
+  document.querySelectorAll('.dotButton').forEach((dotButton) => {
+    if (dotButton.dataset.imageId === newActiveID) {
+      dotButton.classList.add('activeDot');
+    } else {
+      dotButton.classList.remove('activeDot');
+    }
+  });
+}
 
 function rotateChildElements(parent, direction) {
   if (parent.children.length > 1 && direction) {
